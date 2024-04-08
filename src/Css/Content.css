@@ -1,0 +1,63 @@
+/* color change depends the value */
+.success {
+  position: relative;
+  color: green;
+}
+.success::after {
+  content: url(../icon/chevrons-up.svg);
+}
+.fail {
+  position: relative;
+  color: red;
+}
+.fail::after {
+  content: url(../icon/chevrons-down.svg);
+}
+
+/* pagination row count selection */
+.content select {
+  background-color: #e9f6ff;
+  border: none;
+  outline: none;
+  color: black;
+  border-radius: 6px;
+}
+.content select option {
+  background-color: #e9f6ff;
+  color: black;
+}
+
+/* even rows */
+.LtoR {
+  position: relative;
+  left: 0%;
+  animation: LtoRCells 0.5s;
+}
+
+@keyframes LtoRCells {
+  0% {
+    position: absolute;
+    left: -100%;
+  }
+  100% {
+    position: relative;
+    left: 0%;
+  }
+}
+
+/* add rows */
+.RtoL {
+  position: relative;
+  right: 0%;
+  animation: RtoLCells 0.5s;
+}
+@keyframes RtoLCells {
+  0% {
+    position: absolute;
+    right: -100%;
+  }
+  100% {
+    position: relative;
+    right: 0%;
+  }
+}

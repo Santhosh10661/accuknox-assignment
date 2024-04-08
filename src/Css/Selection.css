@@ -1,0 +1,32 @@
+.drapDownList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.drapDownList::-webkit-scrollbar-track {
+  background: #f1efef;
+  border-radius: 20px;
+}
+.drapDownList::-webkit-scrollbar-thumb {
+  background: rgb(186, 187, 189);
+  border-radius: 20px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+.drapDownList {
+  overflow-y: scroll;
+  transition: 0.3s ease-in-out;
+  height: fit-content;
+}
+.select:hover {
+  cursor: pointer;
+}
+
+.show {
+  max-height: 200px;
+}
+.hide {
+  max-height: 0px;
+}
+.active {
+  background-color: #f5f5f5;
+}

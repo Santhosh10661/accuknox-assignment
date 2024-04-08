@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import data from "./data.json";
+import "./App.css";
+import Selection from "./Selection";
+import Content from "./Content";
 
 function App() {
+  const stockData = data.data;
+
+  const [selectedItem, setSelectedItem] = useState(stockData[0]);
+  const [dropDownShow, setDropDownShow] = useState(false);
+
+  const handleSelect = (item) => {
+    const getStock = stockData.filter((stock) => {
+      if (stock.stockName === item) {
+        return stock;
+      }
+    });
+    setSelectedItem(getStock[0]);
+    setDropDownShow(!dropDownShow);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="App container-fluid"
+      style={{ minHeight: "100dvh" }}
+      onClick={() => dropDownShow && setDropDownShow(false)}
+    >
+      <main className="container py-3">
+        <Selection
+          stockData={stockData}
+          selectedItem={selectedItem}
+          dropDownShow={dropDownShow}
+          setDropDownShow={setDropDownShow}
+          handleSelect={handleSelect}
+        />
+        <Content selectedItem={selectedItem} />
+      </main>
     </div>
   );
 }
