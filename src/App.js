@@ -12,9 +12,7 @@ function App() {
 
   const handleSelect = (item) => {
     const getStock = stockData.filter((stock) => {
-      if (stock.stockName === item) {
-        return stock;
-      }
+      return stock.stockName === item;
     });
     setSelectedItem(getStock[0]);
     setDropDownShow(!dropDownShow);
